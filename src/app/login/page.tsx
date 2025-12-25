@@ -4,8 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
-import { Eye, EyeOff, Mail, Lock, GithubIcon, OctagonAlert } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, OctagonAlert } from "lucide-react";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,25 +18,11 @@ function LoginPage() {
 
   return (
     <div className="min-h-screen bg-primary flex items-center justify-center p-4">
-      {/* Shell with rounded borders */}
+
       <div className="w-full max-w-5xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-        {/* Blank side for image with dotted glow background only here */}
         <div className="hidden md:block md:basis-1/2 bg-black relative" aria-hidden="true">
           <h1 className='shiny-gradient-text font-bold text-6xl footer-font absolute inset-0 z-20 m-auto size-50'>TU<br></br>CODEs</h1>
-          <DottedGlowBackground
-          className="pointer-events-none mask-radial-to-90% mask-radial-at-center"
-          opacity={1}
-          gap={10}
-          radius={1.6}
-          colorLightVar="--color-neutral-500"
-          glowColorLightVar="--color-neutral-600"
-          colorDarkVar="--color-neutral-500"
-          glowColorDarkVar="--color-sky-800"
-          backgroundOpacity={0}
-          speedMin={0.3}
-          speedMax={1.6}
-          speedScale={1}
-          />
+          
         </div>
 
 
@@ -116,14 +101,10 @@ function LoginPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <Button variant="outline" className="bg-card rounded-xl">
               <OctagonAlert/>
               Google
-            </Button>
-            <Button variant="outline" className="bg-card rounded-xl">
-              <GithubIcon className="mr-2 h-5 w-5" />
-              GitHub
             </Button>
           </div>
 
