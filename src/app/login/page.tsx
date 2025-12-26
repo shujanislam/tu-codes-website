@@ -12,16 +12,26 @@ function LoginPage() {
   const supabase =  createSupabaseBrowser();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [password, setPassword] = useState("");
 
 const handleSignUp = async () => {
-    const { error } = await supabase.auth.signUp({ email, password });
+const { data, error } = await supabase.auth.signUp({
+  email,
+  password,
+  options: {
+    data: { display_name: displayName },
+  },
+});
     if (error) alert(error.message);
     else alert("Signed up! Check email if confirmation is enabled.");
   };
 
   const handleSignIn = async () => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+const { data, error } = await supabase.auth.signInWithPassword({
+  email,
+  password,
+});
     if (error) alert(error.message);
     else alert("Signed up successfully") // or router.push("/")
   };
@@ -60,6 +70,22 @@ const handleSignUp = async () => {
               </div>
             </div>
 
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-foreground font-medium">
+                Name 
+              </Label>
+              <div className="relative">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="john doe"
+                  value={displayName}
+                  onChange={(e) => setDisplayName(e.target.value)}
+                  className="pl-12"
+                />
+              </div>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="password" className="text-foreground font-medium">
                 Password

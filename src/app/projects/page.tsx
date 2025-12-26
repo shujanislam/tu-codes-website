@@ -1,11 +1,12 @@
-"use client";
+import { fetchProjects } from '../../../lib/queries';
+import CreateProjectCard from '../../components/projects';
 
-import Projects from "@/components/projects";
-
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+    const res = await fetchProjects();
+    console.log(res);
     return (
-        <div className="min-h-screen bg-white">
-            <Projects />
-        </div>
+    <>
+      <CreateProjectCard />
+    </>
     );
 }
