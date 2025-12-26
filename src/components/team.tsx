@@ -4,24 +4,36 @@ export default function Team() {
     const teamMembers = [
         {
             name: "Akshay R",
-            role: "President",
+            role: "Lead",
             quote: "Code is poetry written in logic",
             image: "/team/member1.jpg", // replace this with actual image 
             borderColor: "border-blue-500",
             socials: {
-                linkedin: "https://www.linkedin.com/in/akshay-r-52723730b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                linkedin: "https://www.linkedin.com/in/akshay-r-52723730b/",
                 github: "https://github.com/akshay003-bot",
+                twitter: "#",
+            },
+        },
+        {
+            name: "Rahul Yadav",
+            role: "Technical Lead",
+            quote: "Leading with clarity, building with discipline",
+            image: "/team/member6.jpg",
+            borderColor: "border-pink-500",
+            socials: {
+                linkedin: "https://www.linkedin.com/in/rahul-yadav-b37648238/",
+                github: "https://github.com/Coder-Rahul-Y",
                 twitter: "#",
             },
         },
         {
             name: "Shujan Mashuq Islam",
             role: "Development Lead",
-            quote: "Innovation distinguishes leaders from followers",
+            quote: "I hope it works on my machine",
             image: "/team/member2.jpg",
             borderColor: "border-red-500",
             socials: {
-                linkedin: "https://www.linkedin.com/in/shujan-islam-954236318/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+                linkedin: "https://www.linkedin.com/in/shujan-islam-954236318/",
                 github: "https://github.com/shujanislam/",
                 twitter: "#",
             },
@@ -74,18 +86,6 @@ export default function Team() {
                 twitter: "#",
             },
         },
-        {
-            name: "Rahul Yadav",
-            role: "Technical Lead",
-            quote: "Leading with clarity, building with discipline",
-            image: "/team/member6.jpg",
-            borderColor: "border-pink-500",
-            socials: {
-                linkedin: "https://www.linkedin.com/in/rahul-yadav-b37648238/",
-                github: "https://github.com/Coder-Rahul-Y",
-                twitter: "#",
-            },
-        },
     ];
 
     return (
@@ -94,11 +94,8 @@ export default function Team() {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4">
-                        Meet Our Team
+                        Meet Our Team Leads
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Team members of the TU Codes club 😁.
-                    </p>
                 </div>
 
                 {/* Team Grid */}
@@ -133,6 +130,7 @@ export default function Team() {
                             <div className="flex justify-center gap-4">
                                 <a
                                     href={member.socials.linkedin}
+                                    target="_blank"
                                     className="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-600 flex items-center justify-center transition-all group-hover:scale-110"
                                     aria-label="LinkedIn"
                                 >
@@ -143,6 +141,7 @@ export default function Team() {
                                 <a
                                     href={member.socials.github}
                                     className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-900 flex items-center justify-center transition-all group-hover:scale-110"
+                                    target="_blank"
                                     aria-label="GitHub"
                                 >
                                     <svg className="w-5 h-5 text-gray-600 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -151,6 +150,7 @@ export default function Team() {
                                 </a>
                                 <a
                                     href={member.socials.twitter}
+                                    target="_blank"
                                     className="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-400 flex items-center justify-center transition-all group-hover:scale-110"
                                     aria-label="Twitter"
                                 >
