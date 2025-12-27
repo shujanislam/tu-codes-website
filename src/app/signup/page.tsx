@@ -33,7 +33,6 @@ function SignUpPage() {
             alert(error.message);
             setIsLoading(false);
         } else {
-            alert("Signed up! Check your email for confirmation.");
             setIsLoading(false);
             // Optionally redirect to sign in page
             // router.push("/signin");

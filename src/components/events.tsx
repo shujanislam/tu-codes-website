@@ -1,3 +1,6 @@
+"use client"
+import { registerEvent } from '../../lib/actions';
+
 type DbEvent = {
   id: number;
   name: string;
@@ -34,7 +37,17 @@ export default function Events({ events }: { events: DbEvent[] }) {
     if (Number.isNaN(d.getTime())) return "";
     return new Intl.DateTimeFormat("en-IN", { timeStyle: "short" }).format(d);
   };
-
+  
+  const handleRegister = async (eventName: string) => {
+    try{
+      const res = await registerEvent(eventName);
+      console.log('RSVP done')
+    }
+    catch(err: any){
+      console.log(err.message);
+    }
+  };
+  
   return (
     <section className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -106,27 +119,13 @@ export default function Events({ events }: { events: DbEvent[] }) {
                   </p>
 
                   {/* Register Button (keep as button, or convert to Link later) */}
-                  <button className="w-full bg-gray-900 text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-all hover:shadow-lg">
+                  <button className="w-full bg-gray-900 text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-all hover:shadow-lg" onClick={() => handleRegister(event.name)}>
                     Register Now
                   </button>
                 </div>
               );
             })
           )}
-        </div>
-
-        {/* CTA Section (unchanged) */}
-        <div className="mt-16 bg-gradient-to-r from-blue-400 to-blue-700 rounded-3xl p-12 text-center text-white shadow-xl">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">Want to host an event?</h3>
-          <p className="text-xl mb-8 text-blue-100">
-            Create and promote events to your community in minutes.
-          </p>
-          <a
-            href="/join"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all hover:shadow-lg hover:scale-105"
-          >
-            Join Us
-          </a>
         </div>
       </div>
     </section>

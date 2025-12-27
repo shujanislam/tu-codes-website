@@ -62,3 +62,15 @@ export async function deleteProject(projectId: string | number) {
 
   return { success: true };
 }
+
+export const registerEvent = async(event_name: string) => {
+  const supabase = await createSupabaseServer();
+
+  const { data: userData } = await supabase.auth.getUser();
+
+  const { data, error } = await supabase.from("rsvpEvents").insert([{ name: userData.user.user_metadata.display_name, event_name },]).select().single();
+
+  if(error) throw new Error('Failed to register to the event');
+
+  return data;
+}
