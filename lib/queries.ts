@@ -1,4 +1,5 @@
 import "server-only";
+import { unstable_cache } from "next/cache";          
 import { createSupabaseServer } from "./supabase/server";
 
 export const fetchProjectsCount = async() => {

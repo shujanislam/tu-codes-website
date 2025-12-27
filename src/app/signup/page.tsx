@@ -8,6 +8,7 @@ import { Eye, EyeOff, Mail, Lock, User } from "lucide-react";
 import { createSupabaseBrowser } from "../../../lib/supabase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import SignUpSuccessfulPopUp from '../../components/ui/SignUpSuccessful';
 
 function SignUpPage() {
     const supabase = createSupabaseBrowser();
@@ -40,6 +41,8 @@ function SignUpPage() {
     };
 
     return (
+      <>
+        <SignUpSuccessfulPopUp />
         <div className="min-h-screen bg-primary flex items-center justify-center p-4">
             <div className="w-full max-w-5xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
                 {/* Left Side - TU CODES Branding */}
@@ -131,14 +134,6 @@ function SignUpPage() {
                             {isLoading ? "Creating Account..." : "Sign Up"}
                         </Button>
                     </form>
-
-                    {/* Confirmation Notice */}
-                    <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                        <p className="text-xs text-blue-800">
-                            📧 A confirmation email will be sent to verify your account
-                        </p>
-                    </div>
-
                     {/* Sign In Link */}
                     <div className="mt-6 text-center">
                         <p className="text-sm text-muted-foreground">
@@ -151,6 +146,7 @@ function SignUpPage() {
                 </div>
             </div>
         </div>
+      </>
     )
 }
 

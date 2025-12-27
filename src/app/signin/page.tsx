@@ -8,6 +8,7 @@ import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { createSupabaseBrowser } from "../../../lib/supabase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import SigninSuccessfulPopUp from '../../components/ui/SigninSuccessful';
 
 function SignInPage() {
     const supabase = createSupabaseBrowser();
@@ -28,12 +29,13 @@ function SignInPage() {
             alert(error.message);
             setIsLoading(false);
         } else {
-            alert("Signed in successfully!");
             router.push("/");
         }
     };
 
     return (
+    <>
+        <SigninSuccessfulPopUp />
         <div className="min-h-screen bg-primary flex items-center justify-center p-4">
             <div className="w-full max-w-5xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
                 {/* Left Side - TU CODES Branding */}
@@ -133,6 +135,7 @@ function SignInPage() {
                 </div>
             </div>
         </div>
+      </>
     )
 }
 
