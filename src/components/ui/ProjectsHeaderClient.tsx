@@ -13,11 +13,6 @@ export default function ProjectsHeaderClient({ projectsCount }: { projectsCount:
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
-                <span className="h-2 w-2 rounded-full bg-[#1a73e8]" />
-                Showcase • TU Codes
-              </div>
-
               <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900">
                 Projects
               </h1>
