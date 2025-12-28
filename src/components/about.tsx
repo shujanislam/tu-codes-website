@@ -1,141 +1,162 @@
+import Link from "next/link";
+import {
+  ArrowRight,
+  Code2,
+  Trophy,
+  CalendarDays,
+  Users,
+  Sparkles,
+  BookOpen,
+  Rocket,
+} from "lucide-react";
+
 export default function About() {
-    return (
-        <section className="bg-gray-50 py-20 md:py-24">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        About TU Codes
-                    </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        A thriving community of passionate developers, innovators, and tech enthusiasts
-                        committed to fostering a culture of learning and collaboration.
-                    </p>
+  const offers = [
+    {
+      title: "Workshops (Build Mode)",
+      desc: "Hands-on sessions that end with code shipped — not just notes.",
+      Icon: Code2,
+    },
+    {
+      title: "Hackathons & Sprints",
+      desc: "Team up, build fast, demo loud. Best way to level up quickly.",
+      Icon: Trophy,
+    },
+    {
+      title: "Events & Meetups",
+      desc: "Talks, demos, collabs and fun sessions with real builders.",
+      Icon: CalendarDays,
+    },
+    {
+      title: "Mentorship",
+      desc: "Roadmaps, reviews, and guidance from seniors & mentors.",
+      Icon: Users,
+    },
+    {
+      title: "Projects & Showcases",
+      desc: "Portfolio-ready builds with feedback + public showcasing.",
+      Icon: Sparkles,
+    },
+    {
+      title: "Resources & Tracks",
+      desc: "Curated paths so you don’t get stuck in tutorial hell.",
+      Icon: BookOpen,
+    },
+  ];
+
+  return (
+    <section className="relative overflow-hidden bg-white">
+      {/* Background: subtle dots + blue blobs */}
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, #1a73e8 1px, transparent 0)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+        <div className="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#1a73e8]/15 blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-[#1a73e8]/10 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
+        {/* HERO (Full width) */}
+        <div className="max-w-4xl">
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+            About <span className="text-[#1a73e8]">TU-Codes</span>
+          </h1>
+
+          <p className="mt-4 text-base leading-7 text-gray-600">
+            TU Codes is a student-driven community where learning happens by building.
+            Workshops, hackathons, projects, mentorship — and a lot of fun along the way.
+          </p>
+        </div>
+
+        {/* MISSION / VISION */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+            <p className="text-xs font-semibold text-[#1a73e8]">MISSION</p>
+            <h2 className="mt-2 text-lg font-semibold text-gray-900">
+              Make students confident builders.
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-gray-600">
+              We help students move from tutorials to real projects through practice, mentorship,
+              and community momentum.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+            <p className="text-xs font-semibold text-[#1a73e8]">VISION</p>
+            <h2 className="mt-2 text-lg font-semibold text-gray-900">
+              A high-signal tech culture on campus.
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-gray-600">
+              A place where students collaborate, ship consistently, and get industry-ready together.
+            </p>
+          </div>
+        </div>
+
+        {/* WHAT WE DO */}
+        <div className="mt-14">
+          <div>
+            <h2 className="text-xl font-semibold text-gray-900">What we do</h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Fun, fast, practical — and always focused on output.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {offers.map(({ title, desc, Icon }) => (
+              <div
+                key={title}
+                className="group rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md"
+              >
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-[#1a73e8] ring-1 ring-blue-100">
+                    <Icon className="h-5 w-5" />
+                  </span>
+
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-600">{desc}</p>
+                  </div>
                 </div>
 
-                {/* Mission & Vision Cards */}
-                <div className="grid md:grid-cols-2 gap-8 mb-16">
-                    {/* Mission Card */}
-                    <div className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
-                        <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                                <span className="text-2xl">🎯</span>
-                            </div>
-                            <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed text-lg">
-                            To empower students with cutting-edge technical skills, foster innovation,
-                            and create a supportive environment where everyone can learn, build, and grow together.
-                            We believe in hands-on learning and real-world problem solving.
-                        </p>
-                    </div>
-
-                    {/* Vision Card */}
-                    <div className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
-                        <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                                <span className="text-2xl">🚀</span>
-                            </div>
-                            <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed text-lg">
-                            To build the most vibrant and inclusive coding community in our university,
-                            where students from all backgrounds can collaborate on innovative projects,
-                            participate in hackathons, and prepare for successful careers in technology.
-                        </p>
-                    </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-xs font-medium text-gray-500">
+                    Built for students
+                  </span>
+                  <span className="text-xs font-semibold text-[#1a73e8] opacity-0 transition group-hover:opacity-100">
+                    Learn more <ArrowRight className="inline h-3.5 w-3.5" />
+                  </span>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-                {/* What We Offer */}
-                <div className="mb-16">
-                    <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
-                        What We Offer
-                    </h3>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {/* Workshop Card */}
-                        <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-blue-200">
-                            <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                                <span className="text-3xl">💻</span>
-                            </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Workshops & Bootcamps</h4>
-                            <p className="text-gray-600">
-                                Regular hands-on workshops covering web development, mobile apps, AI/ML, and more.
-                            </p>
-                        </div>
-
-                        {/* Hackathons Card */}
-                        <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-red-200">
-                            <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                                <span className="text-3xl">🏆</span>
-                            </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Hackathons</h4>
-                            <p className="text-gray-600">
-                                Exciting coding competitions where you can showcase your skills and win prizes.
-                            </p>
-                        </div>
-
-                        {/* Projects Card */}
-                        <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-green-200">
-                            <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                                <span className="text-3xl">🛠️</span>
-                            </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Real Projects</h4>
-                            <p className="text-gray-600">
-                                Work on real-world projects and build your portfolio while collaborating with peers.
-                            </p>
-                        </div>
-
-                        {/* Mentorship Card */}
-                        <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-yellow-200">
-                            <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                                <span className="text-3xl">👥</span>
-                            </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Mentorship</h4>
-                            <p className="text-gray-600">
-                                Get guidance from experienced seniors and industry professionals.
-                            </p>
-                        </div>
-
-                        {/* Networking Card */}
-                        <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-purple-200">
-                            <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                                <span className="text-3xl">🤝</span>
-                            </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Networking</h4>
-                            <p className="text-gray-600">
-                                Connect with like-minded developers and expand your professional network.
-                            </p>
-                        </div>
-
-                        {/* Resources Card */}
-                        <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-pink-200">
-                            <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                                <span className="text-3xl">📚</span>
-                            </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Learning Resources</h4>
-                            <p className="text-gray-600">
-                                Access curated learning materials, tutorials, and exclusive resources.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* CTA Section */}
-                <div className="bg-gradient-to-r from-blue-400 to-blue-700 rounded-3xl p-12 text-center text-white shadow-xl">
-                    <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                        Ready to Join Our Community?
-                    </h3>
-                    <p className="text-xl mb-8 text-blue-100">
-                        Be part of something amazing. Start your coding journey with us today!
-                    </p>
-                    <a
-                        href="/join"
-                        className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all hover:shadow-lg hover:scale-105"
-                    >
-                        Join TU Codes Now
-                    </a>
-                </div>
+        {/* CTA */}
+        <div className="mt-14 rounded-3xl border border-blue-100 bg-gradient-to-r from-blue-50 to-white p-8 shadow-sm">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <h2 className="text-xl font-semibold text-gray-900">
+                Ready to build with the club?
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-gray-600">
+                Join TU Codes to get updates on sessions, events, hackathons, and project collabs.
+              </p>
             </div>
-        </section>
-    );
+
+            <Link
+              href="/join"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1a73e8] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1558b0]"
+            >
+              Join now <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
