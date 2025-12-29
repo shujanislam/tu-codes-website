@@ -1,3 +1,7 @@
+"use client"
+import { registerEvent } from '../../lib/actions';
+import { CalendarDays, Clock, MapPin, ArrowRight } from "lucide-react";
+
 type DbEvent = {
   id: number;
   name: string;
@@ -34,99 +38,118 @@ export default function Events({ events }: { events: DbEvent[] }) {
     if (Number.isNaN(d.getTime())) return "";
     return new Intl.DateTimeFormat("en-IN", { timeStyle: "short" }).format(d);
   };
-
+  
+  const handleRegister = async (eventName: string) => {
+    try{
+      const res = await registerEvent(eventName);
+      console.log('RSVP done')
+    }
+    catch(err: any){
+      console.log(err.message);
+    }
+  };
+  
   return (
-    <section className="bg-gray-50 py-20 md:py-24">
+<section className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
             Upcoming Events
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay updated with events happening around you.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Workshops, hackathons, and meetups designed to help you learn and build.
           </p>
         </div>
 
-        {/* Events Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {(!events || events.length === 0) ? (
+        {/* Grid */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {!events || events.length === 0 ? (
             <div className="text-gray-600">No events yet.</div>
           ) : (
-            events.map((event) => {
-              const colors = getColorClasses(event.tag);
-              return (
-                <div
-                  key={event.id}
-                  className={`${colors.bg} rounded-3xl p-8 hover:shadow-xl transition-all border ${colors.border}`}
-                >
-                  {/* Image (optional) */}
-                  {event.image_url ? (
+            events.map((event) => (
+              <div
+                key={event.id}
+                className="
+                  group overflow-hidden rounded-3xl border border-gray-200 bg-white
+                  shadow-sm transition
+                  hover:-translate-y-0.5 hover:shadow-md hover:border-blue-200
+                "
+              >
+                {/* Image */}
+                {event.image_url ? (
+                  <div className="relative">
                     <img
                       src={event.image_url}
                       alt={event.name}
-                      className="w-full h-40 object-cover rounded-2xl mb-5"
+                      className="h-44 w-full object-cover"
                       loading="lazy"
                     />
-                  ) : null}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
 
-                  {/* Tag badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`${colors.badge} text-white px-4 py-1 rounded-full text-sm font-semibold`}>
+                    {/* Tag */}
+                    <div className="absolute left-4 top-4">
+                      <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
+                        {event.tag ?? "Event"}
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="border-b border-gray-100 px-6 py-4">
+                    <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
                       {event.tag ?? "Event"}
                     </span>
                   </div>
+                )}
 
+                <div className="p-6">
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold tracking-tight text-gray-900">
                     {event.name}
                   </h3>
 
-                  {/* Details */}
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="text-lg">📅</span>
-                      <span className="font-medium">{formatDate(event.scheduled_at)}</span>
+                  {/* Meta */}
+                  <div className="mt-3 space-y-2 text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <CalendarDays className="h-4 w-4 text-[#1a73e8]" />
+                      <span className="font-medium text-gray-800">
+                        {formatDate(event.scheduled_at)}
+                      </span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="text-lg">🕒</span>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-[#1a73e8]" />
                       <span>{formatTime(event.scheduled_at)}</span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-gray-700">
-                      <span className="text-lg">📍</span>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-[#1a73e8]" />
                       <span>{event.location ?? "TBA"}</span>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="mt-4 line-clamp-3 text-sm leading-6 text-gray-600">
                     {event.description ?? "No description provided."}
                   </p>
 
-                  {/* Register Button (keep as button, or convert to Link later) */}
-                  <button className="w-full bg-gray-900 text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-all hover:shadow-lg">
-                    Register Now
+                  {/* Action */}
+                  <button
+                    onClick={() => handleRegister(event.name)}
+                    className="
+                      mt-6 inline-flex w-full items-center justify-center gap-2
+                      rounded-xl bg-[#1a73e8] px-4 py-3 text-sm font-semibold text-white
+                      shadow-sm transition hover:bg-[#1558b0]
+                      focus:outline-none focus:ring-2 focus:ring-blue-300
+                    "
+                  >
+                    Register
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                   </button>
                 </div>
-              );
-            })
+              </div>
+            ))
           )}
-        </div>
-
-        {/* CTA Section (unchanged) */}
-        <div className="mt-16 bg-gradient-to-r from-blue-400 to-blue-700 rounded-3xl p-12 text-center text-white shadow-xl">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">Want to host an event?</h3>
-          <p className="text-xl mb-8 text-blue-100">
-            Create and promote events to your community in minutes.
-          </p>
-          <a
-            href="/join"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all hover:shadow-lg hover:scale-105"
-          >
-            Join Us
-          </a>
         </div>
       </div>
     </section>
