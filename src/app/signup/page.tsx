@@ -17,6 +17,7 @@ function SignUpPage() {
   const [displayName, setDisplayName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const handleSignUp = async () => {
     setIsLoading(true);
@@ -34,13 +35,15 @@ function SignUpPage() {
       setIsLoading(false);
     } else {
       setIsLoading(false);
-      // Optionally router.push("/signin");
+      setShowSuccessPopup(true);
     }
   };
 
   return (
     <>
-      <SignUpSuccessfulPopUp />
+      {showSuccessPopup && (
+        <SignUpSuccessfulPopUp onClose={() => setShowSuccessPopup(false)} />
+      )}
 
       <div className="min-h-screen bg-white flex items-center justify-center p-4">
         <div className="w-full max-w-5xl rounded-3xl border border-gray-100 bg-white shadow-2xl overflow-hidden flex flex-col md:flex-row">
