@@ -1,14 +1,25 @@
-export default function SignInSuccessfulPopUp() {
+"use client";
+
+import { useEffect } from "react";
+
+interface SignInSuccessfulPopUpProps {
+  onClose: () => void;
+}
+
+export default function SignInSuccessfulPopUp({ onClose }: SignInSuccessfulPopUpProps) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
   return (
     <div
       role="status"
       aria-live="polite"
-      className="
-        fixed top-4 right-4 z-50
-        w-[320px] max-w-[90vw]
-        rounded-xl border border-green-200 bg-green-50
-        px-4 py-3 shadow-lg
-      "
+      className="fixed top-4 right-4 z-50 w-[320px] max-w-[90vw] rounded-xl border border-green-200 bg-green-50 px-4 py-3 shadow-lg"
     >
       <div className="flex items-start gap-3">
         {/* Check Icon */}
@@ -29,13 +40,14 @@ export default function SignInSuccessfulPopUp() {
         <div className="flex-1">
           <p className="text-sm font-semibold text-green-900">Signed in</p>
           <p className="mt-0.5 text-xs text-green-800">
-            You’ve successfully signed in to your account.
+            You've successfully signed in to your account.
           </p>
         </div>
 
-        {/* Optional close button (wire it to state if needed) */}
+        {/* Close button */}
         <button
           type="button"
+          onClick={onClose}
           aria-label="Close"
           className="rounded-md p-1 text-green-800/70 hover:bg-green-100 hover:text-green-900"
         >
