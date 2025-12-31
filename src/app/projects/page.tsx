@@ -1,7 +1,9 @@
+// Server component: data fetching on server
 import ProjectGrid from "@/components/ui/ProjectGrid";
 import ProjectsHeaderClient from "@/components/ui/ProjectsHeaderClient";
 import { fetchProjects, fetchProjectsCount } from "../../../lib/queries";
-
+import Authorizatin from "@/components/Authorization";
+import Authorization from "@/components/Authorization";
 export const dynamic = "force-dynamic"; // ensures SSR (not static)
 
 export default async function ProjectsPage() {
@@ -12,6 +14,7 @@ export default async function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Authorization/>
       <ProjectsHeaderClient projectsCount={projectsCount ?? 0} />
 
       <section className="bg-gray-50 py-12">
