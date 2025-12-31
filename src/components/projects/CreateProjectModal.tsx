@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { createProject } from "../../lib/actions";
+import { createProject } from "../../../lib/actions";
 import { Plus, Check, AlertCircle, X } from "lucide-react";
 
 interface CreateProjectModalProps {

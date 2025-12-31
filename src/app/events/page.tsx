@@ -1,4 +1,4 @@
-import Events from "@/components/events";
+import Events from "@/components/events/events";
 import { fetchEvents } from '../../../lib/queries';
 
 export default async function EventsPage() {

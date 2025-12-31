@@ -1,4 +1,4 @@
-import EventsClient from "@/components/EventsClient";
+import EventsClient from "@/components/events/EventsClient";
 
 type DbEvent = {
   id: number;

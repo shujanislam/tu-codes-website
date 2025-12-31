@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { createSupabaseBrowser } from "../../../lib/supabase/client";
-import CreateProjectModal from "@/components/projects";
+import CreateProjectModal from "@/components/projects/CreateProjectModal";
 import AuthRequiredPopup from "@/components/ui/AuthRequiredPopup";
 
 export default function ProjectsHeaderClient({ projectsCount }: { projectsCount: number }) {

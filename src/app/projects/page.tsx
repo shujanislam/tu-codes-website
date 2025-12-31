@@ -1,6 +1,6 @@
 // Server component: data fetching on server
-import ProjectGrid from "@/components/ui/ProjectGrid";
-import ProjectsHeaderClient from "@/components/ui/ProjectsHeaderClient";
+import ProjectGrid from "@/components/projects/ProjectGrid";
+import ProjectsHeaderClient from "@/components/projects/ProjectsHeaderClient";
 import { fetchProjects, fetchProjectsCount } from "../../../lib/queries";
 export const dynamic = "force-dynamic"; // ensures SSR (not static)
 

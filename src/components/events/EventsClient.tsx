@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { registerEvent } from "../../lib/actions";
-import { createSupabaseBrowser } from "../../lib/supabase/client";
+import { registerEvent } from "../../../lib/actions";
+import { createSupabaseBrowser } from "../../../lib/supabase/client";
 import { CalendarDays, Clock, MapPin, ArrowRight } from "lucide-react";
-import EventRegistrationPopup from "@/components/ui/EventRegistrationPopup";
+import EventRegistrationPopup from "@/components/events/EventRegistrationPopup";
 import AuthRequiredPopup from "@/components/ui/AuthRequiredPopup";
 
 type DbEvent = {

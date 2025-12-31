@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { createSupabaseBrowser } from "../../lib/supabase/client";
+import { createSupabaseBrowser } from "../../../lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
-import LogoutSuccessfulPopUp from "./ui/LogoutSuccessful";
+import LogoutSuccessfulPopUp from "../ui/LogoutSuccessful";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
