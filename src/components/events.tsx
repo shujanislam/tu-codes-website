@@ -1,6 +1,9 @@
-"use client"
 import { registerEvent } from '../../lib/actions';
 import { CalendarDays, Clock, MapPin, ArrowRight } from "lucide-react";
+import { createSupabaseBrowser } from "../../lib/supabase/client";
+import Unauthorized from "./unauthorized";
+import Authorization from "@/components/Authorization";
+
 
 type DbEvent = {
   id: number;
@@ -51,6 +54,7 @@ export default function Events({ events }: { events: DbEvent[] }) {
   
   return (
 <section className="bg-gray-50 py-20 md:py-24">
+      <Authorization/>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
