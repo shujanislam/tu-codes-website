@@ -70,14 +70,14 @@ export const registerEvent = async(event_name: string) => {
 
   if (!userData.user) throw new Error("User not authenticated");
 
+
   const { data: checkUserRegistered, error: err} = await supabase.from('rsvpEvents').select('name, event_name').eq('name', userData.user.user_metadata.display_name).eq('event_name', event_name).limit(1);
 
   if(err){
-    console.log(err);
     throw err;
   } 
 
-  if(checkUserRegistered){
+  if(checkUserRegistered.length > 0){
     return `User already registered for the event ${event_name}`;
   }
 
@@ -85,5 +85,5 @@ export const registerEvent = async(event_name: string) => {
 
   if(error) throw new Error('Failed to register to the event');
 
-  return data;
+  return `Registration done successfully!`;
 }
