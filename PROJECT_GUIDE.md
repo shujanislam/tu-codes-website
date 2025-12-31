@@ -1,4 +1,4 @@
-# 📘 TU Codes Website - Complete Project Guide
+ʼ# 📘 TU Codes Website - Complete Project Guide
 
 > **Welcome!** This guide is designed for developers new to Next.js and team development. It explains every part of this project in beginner-friendly terms.
 
