@@ -143,7 +143,8 @@ export default function About() {
             Be part of something amazing. Start your coding journey with us today!
           </p>
           <a
-            href="/join"
+            href="https://chat.whatsapp.com/LaGO5UcwqpbEgJwuntWPc6"
+            target="_blank"
             className="inline-flex items-center justify-center rounded-full bg-white text-[#1a73e8] px-8 py-4 font-semibold text-lg transition-all hover:bg-gray-100 hover:shadow-lg hover:scale-[1.02]"
           >
             Join TU Codes Now

@@ -4,7 +4,7 @@ export default function Team() {
     const teamMembers = [
         {
             name: "Akshay R",
-            role: "President",
+            role: "Lead",
             quote: "Code is poetry written in logic",
             image: "/Akshay.jpeg",
             borderColor: "border-blue-500",
@@ -58,6 +58,17 @@ export default function Team() {
             },
         },
         {
+            name: "Anwesha Saharia",
+            role: "Design Lead",
+            quote: "Design is not just what it looks like",
+            image: "/Anwesha.jpeg",
+            borderColor: "border-purple-500",
+            socials: {
+                linkedin: "https://www.linkedin.com/in/anwesha-saharia-8119b1289/",
+                github: "https://github.com/AnweshaS25",
+            },
+        },
+        {
             name: "Mirza Aslam Beg",
             role: "Programming Lead",
             quote: "Creating experiences that inspire",
@@ -68,17 +79,6 @@ export default function Team() {
                 github: "https://github.com/Aslam554",
             },
         },
-        {
-            name: "Anwesha Saharia",
-            role: "Design Lead",
-            quote: "Design is not just what it looks like",
-            image: "/Anwesha.jpeg",
-            borderColor: "border-purple-500",
-            socials: {
-                linkedin: "https://www.linkedin.com/in/anwesha-saharia-8119b1289/",
-                github: "https://github.com/AnweshaS25",
-            },
-        }
     ];
 
     return (
@@ -152,7 +152,7 @@ export default function Team() {
                         We're always looking for passionate individuals to join us and make a difference!
                     </p>
                     <a
-                        href="/register"
+                        href="/signup"
                         className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-all hover:shadow-lg hover:scale-105"
                     >
                         Apply Now
