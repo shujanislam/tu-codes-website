@@ -58,7 +58,7 @@ function SignInPage() {
                 <h1 className="text-5xl font-bold text-gray-900 leading-tight">
                   Welcome to{" "}
                   <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                    TU Codes
+                    TU CODES 
                   </span>
                 </h1>
 
