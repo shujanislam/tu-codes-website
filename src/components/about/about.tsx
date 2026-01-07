@@ -16,7 +16,7 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About TU Codes
+            About TU CODES 
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             A thriving community of passionate developers, innovators, and tech enthusiasts
@@ -147,7 +147,7 @@ export default function About() {
             target="_blank"
             className="inline-flex items-center justify-center rounded-full bg-white text-[#1a73e8] px-8 py-4 font-semibold text-lg transition-all hover:bg-gray-100 hover:shadow-lg hover:scale-[1.02]"
           >
-            Join TU Codes Now
+            Join TU CODES Now
           </a>
         </div>
       </div>

@@ -146,13 +146,14 @@ export default function Team() {
                 {/* Join Team CTA */}
                 <div className="text-center bg-gray-50 rounded-3xl p-12">
                     <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                        Want to Join Our Team?
+                        Want to Join Our Community?
                     </h3>
                     <p className="text-lg text-gray-600 mb-6">
                         We're always looking for passionate individuals to join us and make a difference!
                     </p>
                     <a
-                        href="/signup"
+                        href="https://chat.whatsapp.com/LaGO5UcwqpbEgJwuntWPc6"
+                        target="_blank"
                         className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-all hover:shadow-lg hover:scale-105"
                     >
                         Apply Now

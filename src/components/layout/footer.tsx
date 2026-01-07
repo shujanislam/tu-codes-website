@@ -25,7 +25,7 @@ export default function Footer() {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                 TU{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                  Codes
+                 CODES 
                 </span>
               </h2>
 
@@ -106,7 +106,7 @@ export default function Footer() {
           {/* Bottom bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <p className="text-sm text-gray-600">
-              © {year} TU Codes • Tezpur University Community of Developers & Engineers
+              © {year} TU CODES • Tezpur University Community of Developers & Engineers
             </p>
 
           </div>

@@ -17,13 +17,13 @@ export default function Hero() {
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                         Welcome to{" "}
                         <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                            TU Codes
+                            TU CODES
                         </span>
                     </h1>
 
                     {/* Subheading */}
-                    <p className="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed">
-                        Empowering students through technology and innovation
+                    <p className="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed capitalize">
+                      A community of developers and engineers.
                     </p>
 
                     {/* Description */}
