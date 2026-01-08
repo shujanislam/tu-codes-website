@@ -34,7 +34,7 @@ export const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "TU Codes Official Website",
+  title: "TU CODES Official Website",
   description: "",
   icons: {
     icon: "/icon.png",
