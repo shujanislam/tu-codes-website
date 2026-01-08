@@ -36,6 +36,11 @@ export const lexend = Lexend({
 export const metadata: Metadata = {
   title: "TU Codes Official Website",
   description: "",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

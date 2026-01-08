@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createSupabaseBrowser } from "../../../lib/supabase/client";
 import { useRouter } from "next/navigation";
@@ -72,9 +73,14 @@ export default function Navbar() {
             {/* Left: Logo + Name */}
             <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
               {/* Logo */}
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">TC</span>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="TU Codes Logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+                priority
+              />
               <span className="text-xl font-semibold text-gray-900">TU CODES</span>
             </Link>
 
