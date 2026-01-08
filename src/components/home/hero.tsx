@@ -57,7 +57,7 @@ export default async function Hero() {
                             <div className="text-gray-600 font-medium">Active Members</div>
                         </div>
                         <div className="p-6 rounded-2xl bg-red-50 border border-red-100">
-                            <div className="text-4xl font-bold text-red-600 mb-2">50+</div>
+                            <div className="text-4xl font-bold text-red-600 mb-2">10+</div>
                             <div className="text-gray-600 font-medium">Events Conducted</div>
                         </div>
                         <div className="p-6 rounded-2xl bg-green-50 border border-green-100">
