@@ -16,6 +16,7 @@ type DbEvent = {
   image_url: string | null;
   scheduled_at: string;
   created_at: string;
+  link: string | null;
 };
 
 export default function EventsClient({ events }: { events: DbEvent[] }) {
@@ -171,19 +172,36 @@ export default function EventsClient({ events }: { events: DbEvent[] }) {
                       {event.description ?? "No description provided."}
                     </p>
 
-                    {/* Action */}
-                    <button
-                      onClick={() => handleRegister(event.name)}
-                      className="
-                        mt-6 inline-flex w-full items-center justify-center gap-2
-                        rounded-xl bg-[#1a73e8] px-4 py-3 text-sm font-semibold text-white
-                        shadow-sm transition hover:bg-[#1558b0]
-                        focus:outline-none focus:ring-2 focus:ring-blue-300
-                      "
-                    >
-                      Register
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                    </button>
+                     {/* Action */}
+                     {event.link ? (
+                       <a
+                         href={event.link}
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         className="
+                           mt-6 inline-flex w-full items-center justify-center gap-2
+                           rounded-xl bg-[#1a73e8] px-4 py-3 text-sm font-semibold text-white
+                           shadow-sm transition hover:bg-[#1558b0]
+                           focus:outline-none focus:ring-2 focus:ring-blue-300
+                         "
+                       >
+                         Register
+                         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                       </a>
+                     ) : (
+                       <button
+                         onClick={() => handleRegister(event.name)}
+                         className="
+                           mt-6 inline-flex w-full items-center justify-center gap-2
+                           rounded-xl bg-[#1a73e8] px-4 py-3 text-sm font-semibold text-white
+                           shadow-sm transition hover:bg-[#1558b0]
+                           focus:outline-none focus:ring-2 focus:ring-blue-300
+                         "
+                       >
+                         Register
+                         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                       </button>
+                     )}
                   </div>
                 </div>
               ))

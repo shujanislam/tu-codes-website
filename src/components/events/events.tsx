@@ -9,6 +9,7 @@ type DbEvent = {
   image_url: string | null;
   scheduled_at: string;
   created_at: string;
+  link: string | null;
 };
 
 export default function Events({ events }: { events: DbEvent[] }) {

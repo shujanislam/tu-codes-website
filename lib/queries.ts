@@ -38,7 +38,10 @@ export const fetchEvents = async() => {
   try{
     const supabase = await createSupabaseServer();
 
-    const { data, error } = await supabase.from("events").select("id, name, description, image_url, tag, location, scheduled_at, created_at").order("created_at", { ascending: false });
+    const { data, error } = await supabase
+      .from("events")
+      .select("id, name, description, image_url, tag, location, scheduled_at, created_at, link")
+      .order("created_at", { ascending: false });
 
     if(error) throw new Error('Failed to fetch events');
 
