@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { fetchProjectsCount } from '../../../lib/queries';
+import { Suspense } from 'react';
+import ProjectCount from '../ui/ProjectCount';
 
 export default async function Hero() {
-    const projectsCount = await fetchProjectsCount();
     return (
         <section className="relative bg-white py-20 md:py-32">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -61,8 +61,10 @@ export default async function Hero() {
                             <div className="text-gray-600 font-medium">Events Conducted</div>
                         </div>
                         <div className="p-6 rounded-2xl bg-green-50 border border-green-100">
-                            <div className="text-4xl font-bold text-green-600 mb-2">{ projectsCount }</div>
-                            <div className="text-gray-600 font-medium">Projects Built</div>
+                          <Suspense fallback={<div>Loading..</div>}>
+                            <ProjectCount />
+                          </Suspense>
+                          <div className="text-gray-600 font-medium">Projects Built</div>
                         </div>
                     </div>
                 </div>

@@ -101,7 +101,7 @@ export default function Team() {
                             {/* Profile Picture - Circular */}
                             <div className="w-32 h-32 mx-auto mb-6">
                                 <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center overflow-hidden">
-                                  <img src={member.image} />
+                                  <Image src={member.image} width={400} height={400} alt="Core member pics"/>
                                 </div>
                             </div>
 
